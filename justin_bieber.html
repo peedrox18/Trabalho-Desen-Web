@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Justin Bieber - Perfil Musical</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<style>
+    body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+/* Perfil Musical */
+#perfil {
+    background: white;
+    width: 60%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Botão Ouvir Agora */
+#ouvir-agora {
+    background: #ff5733;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s, transform 0.2s;
+}
+#ouvir-agora:hover {
+    background-color: #d9411e;
+    transform: scale(1.05);
+}
+
+/* Galeria de Capas */
+.capas {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.capas img {
+    width: 150px;
+    transition: transform 0.3s;
+}
+.capas img:hover {
+    transform: translateY(-5px);
+}
+
+/* Grade de Shows */
+.grid-shows {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    text-align: center;
+}
+.show {
+    background: #ff5733;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Tabela de Discos */
+table {
+    width: 60%;
+    margin: auto;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+th {
+    background: #ff5733;
+    color: white;
+}
+tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    body {
+        background-color: orange;
+    }
+}
+@media (min-width: 600px) and (max-width: 900px) {
+    body {
+        background-color: blue;
+    }
+}
+@media (min-width: 900px) {
+    body {
+        background-color: purple;
+    }
+}
+
+/* Rodapé */
+footer {
+    margin-top: 20px;
+    padding: 10px;
+    background: #333;
+    color: white;
+}
+
+</style>
+<body>
+
+    <!-- Título -->
+    <h1 class="text-center">Justin Bieber</h1>
+
+    <!-- Perfil Musical -->
+    <div id="perfil">
+        <img id="imagem-principal" src="10_20250304_232112_0009.png" alt="Justin Bieber" height="50px" width="50px">
+        <img id="logo" src="drew house logo.jpg" alt="Logo - Justin Bieber" height="50" width="50">
+
+        <p>Justin Bieber é um cantor canadense que conquistou fama mundial com "Baby".  
+        Ele já vendeu milhões de álbuns e colaborou com artistas como Ed Sheeran e Ariana Grande.</p>
+
+        <!-- Botão interativo -->
+        <button id="ouvir-agora" onclick="playMusic()">🎶 Ouvir Agora</button>
+    </div>
+
+    <!-- Menu Dropdown com Bootstrap -->
+    <div class="text-center mt-4">
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">🎵 Escolha seu som</button>
+            <ul class="dropdown-menu bg-dark text-light">
+                <li><a class="dropdown-item" href="#">Pop</a></li>
+                <li><a class="dropdown-item" href="#">Rock</a></li>
+                <li><a class="dropdown-item" href="#">Jazz</a></li>
+                <li><a class="dropdown-item" href="#">MPB</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Galeria de Capas -->
+    <div class="galeria">
+        <h2>📀 Galeria de Álbuns</h2>
+        <div class="capas">
+            <img src="album1.jpg" alt="Álbum 1">
+            <img src="album2.jpg" alt="Álbum 2">
+            <img src="album3.jpg" alt="Álbum 3">
+        </div>
+    </div>
+
+    <!-- Grade de Shows -->
+    <div class="shows">
+        <h2>📅 Próximos Shows</h2>
+        <div class="grid-shows">
+            <div class="show">São Paulo - 20/08</div>
+            <div class="show">Rio de Janeiro - 25/08</div>
+            <div class="show">Belo Horizonte - 30/08</div>
+        </div>
+    </div>
+
+    <!-- Tabela de Discos -->
+    <h2>📊 Tabela de Discos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Artista</th>
+                <th>Álbum</th>
+                <th>Ano</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Justin Bieber</td><td>Purpose</td><td>2015</td></tr>
+            <tr><td>Justin Bieber</td><td>Justice</td><td>2021</td></tr>
+        </tbody>
+    </table>
+
+    <footer>Criado por [Seu Nome] - Turma X</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        function playMusic() {
+            window.open("https://www.youtube.com/watch?v=kffacxfA7G4", "_blank");
+        }
+    </script>
+</body>
+</html>
