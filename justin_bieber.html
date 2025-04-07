@@ -9,65 +9,143 @@
 </head>
 <style>
     body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
     text-align: center;
-    background-color: #f5f5f5;
+    background-color: #000000;
 }
-
-/* Perfil Musical */
+#titulo {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 22px;
+    color: rgb(255, 101, 45);
+    text-align: center;
+    background-color: aqua;
+}
 #perfil {
-    background: white;
-    width: 60%;
+    background: rgb(143, 143, 143);
+    width: 85%;
     margin: auto;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-
-/* Botão Ouvir Agora */
+#imagem-principal {
+    border-radius: 50%; 
+}
+#listas-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 60px; 
+    justify-content: center;
+    align-items: start;
+    width: 80%;
+    margin: auto;
+}
+.lista {
+    text-align: center;
+}
 #ouvir-agora {
-    background: #ff5733;
+    background: greenyellow;
+    font-size: 20px;
     color: white;
     padding: 10px 20px;
-    border: none;
+    border: 2px solid greenyellow;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.5s, transform 0.2s;
+    transition: background-color 0.5s, transform 0.2s, border-color 0.2s;
 }
 #ouvir-agora:hover {
-    background-color: #d9411e;
+    background-color: #1ec408;
     transform: scale(1.05);
 }
-
-/* Galeria de Capas */
+#ouvir-agora:active{
+    border-color: rgb(0, 0, 0)
+}
 .capas {
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 20px; 
+}
+.album {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+    width: 150px; 
 }
 .capas img {
-    width: 150px;
+    width: 120px;
     transition: transform 0.3s;
 }
 .capas img:hover {
     transform: translateY(-5px);
 }
-
-/* Grade de Shows */
+.album p {
+    font-size: 14px;
+    color: rgb(143, 143, 143);
+    margin-top: 5px;
+}
+.shows{
+    color: pink;
+}
 .grid-shows {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 150px 200px 250px 200px;
     gap: 10px;
-    text-align: center;
+    width: 70%;
+    margin: auto;
+    justify-content: center;
+    font-size: 12;
+    color: #1ec408;
 }
-.show {
-    background: #ff5733;
-    color: white;
+.grid-shows div {
+    background-color: rgb(143, 143, 143);
+    color: purple;
     padding: 10px;
     border-radius: 5px;
+    text-align: center;
 }
-
-/* Tabela de Discos */
+.dropdown-menu.custom-dark {
+    background-color: #343a40;
+  }
+.dropdown-menu.custom-dark a {
+    color: white;
+}
+.dropdown-menu.custom-dark a:hover {
+    background-color: #495057;
+}
+#generos-musicais {
+    text-align: left;
+    width: 60%;
+    margin: 0 auto 30px auto;
+}
+#generos-musicais > li {
+    color: aqua;
+    border-left: 5px solid greenyellow;
+    padding-left: 10px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+#generos-musicais ul > li {
+    color: rgb(143, 143, 143);
+    margin-left: 20px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+#generos-musicais >li:first-child{
+    border-left-color:#1ec408;
+}
+#generos-musicais >li:last-child{
+    border-left-color:pink;
+}
+#generos-musicais ul > li:hover {
+    color: aqua;
+    background-color: rgb(175, 1, 175);
+    border: 1px solid rgb(175, 1, 175);
+    cursor: pointer;
+} 
 table {
     width: 60%;
     margin: auto;
@@ -77,24 +155,24 @@ th, td {
     border: 1px solid black;
     padding: 10px;
     text-align: center;
+    color: white;
+    background-color: rgb(143, 143, 143);
 }
 th {
-    background: #ff5733;
-    color: white;
-}
-tr:nth-child(even) {
-    background: #f2f2f2;
+    background: greenyellow;
+    color: purple;
 }
 
-/* Responsividade */
 @media (max-width: 600px) {
     body {
         background-color: orange;
+        font-size: 12px;
     }
 }
 @media (min-width: 600px) and (max-width: 900px) {
     body {
         background-color: blue;
+        font-size: 16px;
     }
 }
 @media (min-width: 900px) {
@@ -102,68 +180,157 @@ tr:nth-child(even) {
         background-color: purple;
     }
 }
-
-/* Rodapé */
 footer {
     margin-top: 20px;
     padding: 10px;
     background: #333;
     color: white;
 }
-
 </style>
 <body>
-
-    <!-- Título -->
-    <h1 class="text-center">Justin Bieber</h1>
-
-    <!-- Perfil Musical -->
+    <div id="titulo">
+        <h1 class="text-center">Justin Bieber</h1>
+    </div>
     <div id="perfil">
-        <img id="imagem-principal" src="10_20250304_232112_0009.png" alt="Justin Bieber" height="50px" width="50px">
-        <img id="logo" src="drew house logo.jpg" alt="Logo - Justin Bieber" height="50" width="50">
-
-        <p>Justin Bieber é um cantor canadense que conquistou fama mundial com "Baby".  
-        Ele já vendeu milhões de álbuns e colaborou com artistas como Ed Sheeran e Ariana Grande.</p>
-
-        <!-- Botão interativo -->
+        <img id="imagem-principal" src="justin-bieber.jpg" alt="Justin Bieber" height="150px" width="150px">    
+        <p>Justin Bieber é um cantor, compositor, produtor e musicista canadense de 31 anos.
+        <br>
+           Ele é considerado um dos maiores nomes do pop mundial, com sua fama atravessando várias gerações.
+        <br>
+           Dono de hits oomo "Sorry", "Baby" e "Hold On", foi eleito pela Billboard como 8° maior artista do século XXI.
+        </p>
+        <blockquote>"You know you can call me if you need someone"</blockquote>
+        <br>
+        <div id="listas-container">
+            <div class="lista">
+                <h3>Músicas Favoritas</h3>
+                <ol id="ol">
+                    <li>Ghost</li>
+                    <li>Intentions</li>
+                    <li>One Time</li>
+                </ol>
+            </div>
+            <div class="lista">
+                <h3>Curiosidades</h3>
+                <ul id="ul">
+                    <li>Justin Bieber é casado com a modelo Hailey Bieber</li>
+                    <li>É pai de um menino chamado Jack Blues</li>
+                    <li>Foi descoberto por meio de vídeos no YouTube</li>
+                </ul>
+            </div>
+        </div>
+<br>
         <button id="ouvir-agora" onclick="playMusic()">🎶 Ouvir Agora</button>
     </div>
-
-    <!-- Menu Dropdown com Bootstrap -->
     <div class="text-center mt-4">
         <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">🎵 Escolha seu som</button>
-            <ul class="dropdown-menu bg-dark text-light">
-                <li><a class="dropdown-item" href="#">Pop</a></li>
-                <li><a class="dropdown-item" href="#">Rock</a></li>
-                <li><a class="dropdown-item" href="#">Jazz</a></li>
-                <li><a class="dropdown-item" href="#">MPB</a></li>
-            </ul>
+          <button class="btn btn-dark text-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            🎵 Escolha seu som
+          </button>
+          <ul class="dropdown-menu custom-dark">
+            <li><a class="dropdown-item" href="https://open.spotify.com/genre/0JQ5DAqbMKFEC4WFtoNRpw" target="_blank">Pop</a></li>
+            <li><a class="dropdown-item" href="https://open.spotify.com/genre/0JQ5DAqbMKFDXXwE9BDJAr" target="_blank">Rock</a></li>
+            <li><a class="dropdown-item" href="https://open.spotify.com/genre/0JQ5DAqbMKFAJ5xb0fwo9m" target="_blank">Jazz</a></li>
+            <li><a class="dropdown-item" href="https://open.spotify.com/genre/0JQ5DAqbMKFHCaWrPJOoNF" target="_blank">MPB</a></li>
+          </ul>
         </div>
+      </div>
+<br>
+<div class="capas">
+    <div class="album">
+        <a href="https://open.spotify.com/intl-pt/album/1rG5TDs3jYh6OU753I54CI" target="_blank">
+            <img src="my world.jpg" alt="My World(2008)">
+        </a>
+            <p>My World (2009)</p>   
     </div>
-
-    <!-- Galeria de Capas -->
-    <div class="galeria">
-        <h2>📀 Galeria de Álbuns</h2>
-        <div class="capas">
-            <img src="album1.jpg" alt="Álbum 1">
-            <img src="album2.jpg" alt="Álbum 2">
-            <img src="album3.jpg" alt="Álbum 3">
-        </div>
+    <div class="album">
+        <a href="https://open.spotify.com/intl-pt/album/3BmcYMh0KYsimWL6p2gPa9" target="_blank">
+            <img src="my world 2.0.jpg" alt="My World 2.0(2009)">
+        </a>    
+            <p>My World 2.0 (2010)</p>    
     </div>
-
-    <!-- Grade de Shows -->
+    <div class="album">
+        <a href="https://open.spotify.com/intl-pt/album/3cr4Xgz8nnfp7iYbVqwzzH" target="_blank">
+            <img src="under the mistletoe.jfif" alt="Under the Mistletoe(2010)">
+        </a>    
+            <p>Under the Mistletoe (2011)</p>
+    </div>
+    <div class="album">
+        <a href="https://open.spotify.com/intl-pt/album/5cxMa6oLINJzmZ8lF7wWQN" target="_blank">
+            <img src="believe.jpg" alt="Believe(2011)">
+        </a>    
+            <p>Believe (2012)</p>
+    </div>
+    <div class="album">
+        <a href="https://open.spotify.com/intl-pt/album/1rknZw4cyL9NInAqSwc8AA" target="_blank">
+            <img src="journals.png" alt="Journals(2014)">
+        </a>    
+            <p>Journals (2014)</p>
+    </div>
+    <div class="album">
+        <a href="https://open.spotify.com/intl-pt/album/6Fr2rQkZ383FcMqFyT7yPr" target="_blank">
+            <img src="purpose.png" alt="Purpose(2015)">
+        </a>
+            <p>Purpose (2015)</p>
+    </div>
+    <div class="album">
+        <a href="https://open.spotify.com/intl-pt/album/63iWSELt9V1kV6RSMxN7Ii" target="_blank">
+            <img src="changes.png" alt="Changes(2020)">
+        </a>
+            <p>Changes (2020)</p>
+    </div>
+    <div class="album">
+        <a href="https://open.spotify.com/intl-pt/album/5dGWwsZ9iB2Xc3UKR0gif2" target="_blank">
+            <img src="justice.jfif" alt="Justice(2021)">
+        </a>
+            <p>Justice (2021)</p>
+    </div>
+</div>
+<br>
     <div class="shows">
         <h2>📅 Próximos Shows</h2>
-        <div class="grid-shows">
-            <div class="show">São Paulo - 20/08</div>
-            <div class="show">Rio de Janeiro - 25/08</div>
-            <div class="show">Belo Horizonte - 30/08</div>
-        </div>
-    </div>
+            <div class="grid-shows">
+                <div class="header">Data</div>
+                <div class="header">Cidade</div>
+                <div class="header">Local</div>
+                <div class="header">Artista</div>
 
-    <!-- Tabela de Discos -->
-    <h2>📊 Tabela de Discos</h2>
+                <div class="itens">18/08/2025</div> <div>Curitiba</div> <div>Estádio Couto Pereira</div> <div>Justin Bieber</div>
+                <div class="itens">25/08/2025</div> <div>São Paulo</div> <div>Allianz Parque</div> <div>Justin Bieber</div>
+                <div class="itens">26/08/2025</div> <div>São Paulo</div> <div>Allianz Parque</div> <div>Justin Bieber</div>
+                <div class="itens">27/08/2025</div> <div>São Paulo</div> <div>Allianz Parque</div> <div>Justin Bieber</div>
+                <div class="itens">30/08/2025</div> <div>Rio de Janeiro</div> <div>Estádio Nilton Santos</div> <div>Justin Bieber</div>
+                <div class="itens">31/08/2025</div> <div>Rio de Janeiro</div> <div>Estádio Nilton Santos</div> <div>Justin Bieber</div>
+            </div>
+        </div>
+    
+<br>    
+</div>
+<h2 style="color: pink;">🎼 Gêneros Musicais & Artistas</h2>
+<ol id="generos-musicais">
+    <li>Pop
+        <ul>
+            <li>Bruno Mars</li>
+            <li>Justin Bieber</li>
+            <li>One Direction</li>
+        </ul>
+    </li>
+    <li>Rock
+        <ul>
+            <li>Queen</li>
+            <li>AC/DC</li>
+            <li>Linkin Park</li>
+        </ul>
+    </li>
+    <li>Sertanejo 
+        <ul>
+            <li>Luan Santana</li>
+            <li>Jorge e Matheus</li>
+            <li>Gusttavo Lima</li>
+        </ul>
+    </li>
+</ol>
+    <h2 style="color: pink">📊 Tabela de Discos</h2>
     <table>
         <thead>
             <tr>
@@ -173,19 +340,23 @@ footer {
             </tr>
         </thead>
         <tbody>
+            <tr><td>Justin Bieber</td><td>My World 2.0</td><td>2009</td></tr>
+            <tr><td>Justin Bieber</td><td>Journals</td><td>2014</td></tr>
             <tr><td>Justin Bieber</td><td>Purpose</td><td>2015</td></tr>
             <tr><td>Justin Bieber</td><td>Justice</td><td>2021</td></tr>
         </tbody>
     </table>
 
-    <footer>Criado por [Seu Nome] - Turma X</footer>
+    <footer>Pedro Henrique de Oliveira
+        <br>
+        Turma: C Mista - Engenharia de Software</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 
     <script>
         function playMusic() {
-            window.open("https://www.youtube.com/watch?v=kffacxfA7G4", "_blank");
+            window.open("https://open.spotify.com/intl-pt/artist/1uNFoZAHBGtllmzznpCI3s", "_blank");
         }
     </script>
 </body>
